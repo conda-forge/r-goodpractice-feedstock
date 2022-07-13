@@ -1,4 +1,4 @@
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/goodpractice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/goodpractice/goodpractice_{{ version }}.tar.gz
-  sha256: a0eb6b0a0727509ff4deecca967c6ea6b42c9cc967dcc32eafc5e70b3eaa3623
+  sha256: 0218828534db3b82e169511092da0c19b3de9f546e434f5b6661e8af31e6f507
 
 build:
   merge_build_host: true  # [win]
-  number: 1003
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
