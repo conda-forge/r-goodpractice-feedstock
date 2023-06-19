@@ -1,11 +1,11 @@
-About r-goodpractice
-====================
+About r-goodpractice-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-goodpractice-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/mangothecat/goodpractice
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-goodpractice-feedstock/blob/main/LICENSE.txt)
 
 Summary: Give advice about good practices when building R packages. Advice includes functions and syntax to avoid, package structure, code complexity, code formatting, etc.
 
