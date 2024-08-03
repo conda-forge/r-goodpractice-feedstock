@@ -1,6 +1,5 @@
 {% set version = "1.0.5" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-goodpractice
@@ -13,8 +12,7 @@ source:
   sha256: bca018e475f44ff5f2f29d831c7eeb3431d481e04e66ae690e5ae847d1b5e5eb
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   noarch: generic
   rpaths:
     - lib/R/lib/
