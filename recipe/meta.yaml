@@ -17,42 +17,53 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-clisymbols
+    - r-cli
     - r-covr
-    - r-crayon
+    - r-curl
     - r-cyclocomp >=1.1.0
     - r-desc
     - r-jsonlite
-    - r-lintr
+    - r-lintr >=3.0.0
     - r-praise
     - r-rcmdcheck
+    - r-roxygen2
     - r-rstudioapi
+    - r-spelling
+    - r-treesitter
+    - r-treesitter.r
+    - r-urlchecker
     - r-whoami
     - r-withr
-    - r-xml2
-    - r-xmlparsedata >=1.0.1
   run:
     - r-base
-    - r-clisymbols
+    - r-cli
     - r-covr
-    - r-crayon
+    - r-curl
     - r-cyclocomp >=1.1.0
     - r-desc
     - r-jsonlite
-    - r-lintr
+    - r-lintr >=3.0.0
     - r-praise
     - r-rcmdcheck
+    - r-roxygen2
     - r-rstudioapi
+    - r-spelling
+    - r-treesitter
+    - r-treesitter.r
+    - r-urlchecker
     - r-whoami
     - r-withr
-    - r-xml2
-    - r-xmlparsedata >=1.0.1
 
 test:
   commands:
@@ -60,36 +71,16 @@ test:
     - "\"%R%\" -e \"library('goodpractice')\""  # [win]
 
 about:
-  home: https://github.com/mangothecat/goodpractice
+  home: https://docs.ropensci.org/goodpractice/
+  dev_url: https://github.com/ropensci-review-tools/goodpractice
   license: MIT
   summary: Give advice about good practices when building R packages. Advice includes functions and syntax to avoid, package structure, code complexity, code formatting, etc.
   license_family: MIT
-
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
+
 extra:
   recipe-maintainers:
     - conda-forge/r
     - russHyde
-
-# Package: goodpractice
-# Title: Advice on R Package Building
-# Version: 1.0.2
-# Authors@R: c(person("Gabor", "Csardi", email = "csardi.gabor@gmail.com", role = c("aut")), person("Hannah", "Frick", email = "hfrick@mango-solutions.com",  role = c("aut", "cre")))
-# Description: Give advice about good practices when building R packages. Advice includes functions and syntax to avoid, package structure, code complexity, code formatting, etc.
-# License: MIT + file LICENSE
-# LazyData: true
-# URL: https://github.com/mangothecat/goodpractice
-# BugReports: https://github.com/mangothecat/goodpractice/issues
-# RoxygenNote: 6.0.1
-# Suggests: testthat, knitr, rmarkdown
-# Imports: clisymbols, covr, crayon, cyclocomp (>= 1.1.0), desc, jsonlite, lintr, praise, rcmdcheck, rstudioapi, tools, utils, whoami, withr, xml2, xmlparsedata (>= 1.0.1)
-# Collate: 'api.R' 'customization.R' 'lists.R' 'chk_covr.R' 'chk_cyclocomp.R' 'chk_description.R' 'chk_lintr.R' 'chk_namespace.R' 'chk_rcmdcheck.R' 'chk_tnf.R' 'gp.R' 'my_linters.R' 'package.R' 'prep_covr.R' 'prep_cyclocomp.R' 'prep_description.R' 'prep_expressions.R' 'prep_lintr.R' 'prep_namespace.R' 'prep_rcmdcheck.R' 'print.R' 'rstudio_markers.R' 'utils.R'
-# VignetteBuilder: knitr
-# NeedsCompilation: no
-# Packaged: 2018-05-01 10:54:47 UTC; hfrick
-# Author: Gabor Csardi [aut], Hannah Frick [aut, cre]
-# Maintainer: Hannah Frick <hfrick@mango-solutions.com>
-# Repository: CRAN
-# Date/Publication: 2018-05-02 19:03:36 UTC
